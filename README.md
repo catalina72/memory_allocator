@@ -126,6 +126,21 @@ To test the solution, enter the `tests/` directory and run `grade.sh`.
 Note that this requires linters being available.
 The easiest is to use a Docker-based setup with everything installed, as shown in the section ["Running the Linters"](#running-the-linters).
 
+### Running the Linters
+
+To run the linters, use the `make lint` command in the `tests/` directory.
+Note that the linters have to be installed on your system: [`checkpatch.pl`](https://.com/torvalds/linux/blob>It's easiest to run them in a Docker-based setup with everything configured:
+
+```console
+student@so:~/.../mem-alloc/tests$ make lint
+[...]
+cd .. && checkpatch.pl -f checker/*.sh tests/*.sh
+[...]
+cd .. && cpplint --recursive src/ tests/ checker/
+[...]
+cd .. && shellcheck checker/*.sh tests/*.sh
+```
+
 ## Resources
 
 - ["Implementing malloc" slides by Michael Saelee](https://moss.cs.iit.edu/cs351/slides/slides-malloc.pdf)
